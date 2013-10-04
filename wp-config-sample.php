@@ -15,10 +15,14 @@
  */
 
 // ** Adicionado para trabalhar com reporitório git ** //
-define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/CAMINHO_SE_NAO_ESTIVER_NA_RAIZ_LOCALHOST/wordpress');
-define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME']);
-define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . '/wp-content');
-define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/wp-content');
+
+// ** Informar caminho se projeto não estiver na raiz localhost
+$caminho_in_raiz_localhost = ''; // vazio se em raiz e "/caminho/de/exemplo" se existir
+
+define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . $caminho_in_raiz_localhost . '/wordpress');
+define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] . $caminho_in_raiz_localhost);
+define('WP_CONTENT_DIR', $_SERVER['DOCUMENT_ROOT'] . $caminho_in_raiz_localhost . '/wp-content');
+define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . $caminho_in_raiz_localhost . '/wp-content');
 
 // ** Especificar o nome do Thema Wordpress, caso não esteja usando o "twentyeleven" ** //
 define('WP_DEFAULT_THEME', 'NOME_DO_THEMA');
